@@ -139,6 +139,7 @@ body {
   display: flex;
   align-items: center;
   height: 100%;
+  transform: translateY(4px);
 }
 /* Языковые версии логотипа задаём через атрибут lang у html,
    но data-text будет обновляться динамически из JS.
