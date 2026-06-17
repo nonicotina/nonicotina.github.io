@@ -298,6 +298,7 @@ html[lang="fr"] .logo::after { content: "Pas de nicotine"; }
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
+  left: auto;
   list-style: none;
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -306,7 +307,7 @@ html[lang="fr"] .logo::after { content: "Pas de nicotine"; }
   padding: 0.4rem;
   display: none;
   z-index: 1001;
-  min-width: 50px;
+  min-width: max-content;
   box-shadow: var(--glass-shadow);
 }
 .lang-dropdown.active {
