@@ -136,8 +136,9 @@ body {
   filter: drop-shadow(0 0 6px rgba(0,102,255,0.3));
 }
 .logo::after {
-  content: attr(data-text);
-  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 /* Языковые версии логотипа задаём через атрибут lang у html,
    но data-text будет обновляться динамически из JS.
