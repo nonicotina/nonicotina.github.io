@@ -297,8 +297,9 @@ html[lang="fr"] .logo::after { content: "Pas de nicotine"; }
 .lang-dropdown {
   position: absolute;
   top: calc(100% + 6px);
-  left: 0;
+  left: 50%;
   right: auto;
+  transform: translateX(-50%);
   list-style: none;
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
