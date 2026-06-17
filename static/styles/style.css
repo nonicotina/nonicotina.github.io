@@ -120,8 +120,8 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  background: url('../icons/siteicon.webp') left center / 36px 36px no-repeat;
-  height: 44px;
+  background: url('../icons/siteicon.webp') left center / 36px auto no-repeat;
+  height: 53px;
   padding-left: 46px;
   font-family: 'Comfortaa', cursive;
   font-size: 1.6rem;
