@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ok>
+  <subscribed>true</subscribed>
+  <updates>
+    <notification id="1" version="1" delivery="recent" expiration="2027-12-31T23:59:59Z">
+      <visual lang="ru">
+        <binding template="ToastText02">
+          <text id="1">NoNicotina</text>
+          <text id="2">Новый пост о вреде курения</text>
+        </binding>
+      </visual>
+    </notification>
+  </updates>
+</ok>

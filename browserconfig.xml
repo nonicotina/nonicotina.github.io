@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <!-- Основной логотип для плитки -->
+      <square70x70logo src="/static/favicon/mstile-70x70.png"/>
+      <square150x150logo src="/static/favicon/mstile-150x150.png"/>
+      <square310x310logo src="/static/favicon/mstile-310x310.png"/>
+      <wide310x150logo src="/static/favicon/mstile-310x150.png"/>
+      
+      <!-- Цвет плитки -->
+      <TileColor>#0066FF</TileColor>
+      <TileImage src="/static/favicon/mstile-150x150.png"/>
+      
+      <!-- Название плитки -->
+      <tile>
+        <visual version="1" lang="ru">
+          <binding template="TileSquare150x150Text02" fallback="TileSquare150x150Text02">
+            <text id="1" style="caption">NoNicotina</text>
+            <text id="2" style="body">Нет никотину</text>
+          </binding>
+          <binding template="TileWide310x150Text02" fallback="TileWide310x150Text02">
+            <text id="1" style="caption">NoNicotina</text>
+            <text id="2" style="body">Освободись от никотиновой зависимости</text>
+          </binding>
+          <binding template="TileSquare310x310Text02" fallback="TileSquare310x310Text02">
+            <text id="1" style="caption">NoNicotina</text>
+            <text id="2" style="body">Антитабачный проект</text>
+            <text id="3" style="body">Присоединяйся к движению за здоровую жизнь!</text>
+          </binding>
+        </visual>
+      </tile>
+      
+      <!-- Уведомления (периодические обновления плитки) -->
+      <polling-uri src="/notifications/tile.xml"/>
+      <polling-uri2 src="/notifications/tile2.xml"/>
+      <frequency>30</frequency>
+      <cycle>1</cycle>
+    </tile>
+    
+    <!-- Настройки уведомлений -->
+    <notification>
+      <polling-uri src="/notifications/updates.xml"/>
+      <frequency>1440</frequency>
+      <cycle>1</cycle>
+    </notification>
+    
+    <!-- Всплывающие уведомления (toast) -->
+    <toast>
+      <visual version="1" lang="ru">
+        <binding template="ToastText02">
+          <text id="1">NoNicotina</text>
+          <text id="2">Новый пост о вреде курения</text>
+        </binding>
+      </visual>
+    </toast>
+  </msapplication>
+</browserconfig>

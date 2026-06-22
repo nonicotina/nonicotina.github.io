@@ -1,0 +1,18 @@
+# The humans behind NoNicotina
+
+/* TEAM */
+  Project Lead: Normi
+  Contact: info [at] nonicotina.org
+  GitHub: https://github.com/nonicotina
+
+/* THANKS */
+  Icons: self-made + Octicons
+  Fonts: Inter (Rasmus Andersson), Comfortaa (Johan Aakerlund)
+  Inspiration: all people who quit smoking
+
+/* SITE */
+  Last update: 2026-06-22
+  Language: Russian, English, Ukrainian, French
+  Components: HTML5, CSS3 (glassmorphism), vanilla JS, i18n
+  Static hosting: GitHub Pages
+  No frameworks, no pain.

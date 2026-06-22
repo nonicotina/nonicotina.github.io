@@ -1,0 +1,32 @@
+{
+  "site": {
+    "name": "NoNicotina",
+    "url": "https://nonicotina.github.io",
+    "description": "Антитабачный проект, помогающий бросить курить. Содержит статистику, разбор мифов, советы и реальные истории.",
+    "version": "1.0.0",
+    "langs": ["ru", "en", "uk", "fr"],
+    "theme": "system",
+    "maintainer": "Normi",
+    "contact": "info@nonicotina.org",
+    "repository": "https://github.com/nonicotina/nonicotina.github.io",
+    "license": "CC BY-NC-SA 4.0"
+  },
+  "sections": [
+    { "id": "stats", "title": "stats_title", "hash": "#stats" },
+    { "id": "myths", "title": "nav_myths", "hash": "#myths" },
+    { "id": "tips", "title": "tips_title", "hash": "#tips" },
+    { "id": "harm", "title": "harm_title", "hash": "#harm" },
+    { "id": "stories", "title": "stories_title", "hash": "#stories" },
+    { "id": "faq", "title": "faq_title", "hash": "#faq" },
+    { "id": "contacts", "title": "nav_contacts", "hash": "#contacts" }
+  ],
+  "features": {
+    "i18n": true,
+    "themes": ["system", "light", "dark"],
+    "bvi": true,
+    "rss": "https://nonicotina.github.io/rss.xml",
+    "opensearch": "https://nonicotina.github.io/opensearch.xml",
+    "manifest": "https://nonicotina.github.io/site.webmanifest",
+    "security": "https://nonicotina.github.io/.well-known/security.txt"
+  }
+}

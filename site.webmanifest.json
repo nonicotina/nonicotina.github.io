@@ -1,0 +1,135 @@
+{
+  "name": "NoNicotina – Антитабачный проект",
+  "short_name": "NoNicotina",
+  "description": "Освободись от никотиновой зависимости. Узнай правду о вреде курения, читай реальные истории, развей мифы и получи советы по отказу от сигарет.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0066FF",
+  "lang": "ru",
+  "dir": "ltr",
+  "categories": ["health", "education", "lifestyle", "medical"],
+  "iarc_rating": "3+",
+  "screenshots": [
+    {
+      "src": "/static/screenshots/1536x2048.png",
+      "sizes": "1536x2048",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Мобильная версия NoNicotina"
+    },
+    {
+      "src": "/static/screenshots/1920x1080.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Десктопная версия NoNicotina"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/static/favicon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon/favicon-120x120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon/favicon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/favicon/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/favicon/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/favicon/maskable-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/static/favicon/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/static/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "📊 Статистика",
+      "url": "/#stats",
+      "description": "Шокирующая статистика о курении"
+    },
+    {
+      "name": "💡 Мифы",
+      "url": "/#myths",
+      "description": "Развенчание мифов о курении"
+    },
+    {
+      "name": "📝 Советы",
+      "url": "/#tips",
+      "description": "Как бросить курить"
+    },
+    {
+      "name": "❤️ Вред организму",
+      "url": "/#harm",
+      "description": "Что курение делает с телом"
+    },
+    {
+      "name": "🏆 Истории",
+      "url": "/#stories",
+      "description": "Реальные истории победителей"
+    }
+  ]
+}

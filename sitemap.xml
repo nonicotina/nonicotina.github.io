@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Главная страница с языковыми вариантами -->
+  <url>
+    <loc>https://nonicotina.github.io/</loc>
+
+    <!-- Языковые альтернативы -->
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nonicotina.github.io/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nonicotina.github.io/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://nonicotina.github.io/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nonicotina.github.io/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nonicotina.github.io/"/>
+
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Дополнительные ресурсы (по желанию) -->
+  <!-- rss.xml -->
+  <url>
+    <loc>https://nonicotina.github.io/rss.xml</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Страница поиска (если будет) -->
+  <!--
+  <url>
+    <loc>https://nonicotina.github.io/search</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  -->
+
+  <!-- Ошибки (не индексируются, но можно указать для порядка) — необязательно -->
+  <!--
+  <url>
+    <loc>https://nonicotina.github.io/404.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.0</priority>
+  </url>
+  -->
+</urlset>

@@ -1,0 +1,14 @@
+# Security.txt file for nonicotina.github.io
+# According to RFC 9116
+
+Contact: mailto:security@nonicotina.org
+Contact: https://github.com/nonicotina/security
+
+Expires: 2027-12-31T23:59:59.000Z
+
+Preferred-Languages: ru, en
+
+Canonical: https://nonicotina.github.io/.well-known/security.txt
+
+# This is a static site, no sensitive data is processed.
+# Thank you for helping keep the web safe!

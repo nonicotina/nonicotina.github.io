@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tile>
+  <visual version="1" lang="ru">
+    <binding template="TileSquare150x150Text02" fallback="TileSquare150x150Text02">
+      <text id="1" style="caption">NoNicotina</text>
+      <text id="2" style="body">Нет никотину</text>
+    </binding>
+    <binding template="TileWide310x150Text02" fallback="TileWide310x150Text02">
+      <text id="1" style="caption">NoNicotina</text>
+      <text id="2" style="body">Каждая сигарета — шаг к могиле</text>
+    </binding>
+  </visual>
+</tile>

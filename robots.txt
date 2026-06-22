@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Ссылка на основной Sitemap
+Sitemap: https://nonicotina.github.io/sitemap.xml
+
+# Дополнительные карты сайта (если будут)
+# Sitemap: https://nonicotina.github.io/sitemap-images.xml
+# Sitemap: https://nonicotina.github.io/sitemap-video.xml
+
+# Запрещаем индексацию технических файлов (не обязательно, но аккуратно)
+Disallow: /locale/
+Disallow: /static/fonts/
+Disallow: /static/favicon/
+Disallow: /notifications/
+
+# Разрешаем security.txt и другие well-known ресурсы
+Allow: /.well-known/security.txt
+
+# Если появится панель администратора (нет, но для будущего)
+Disallow: /admin/
+
+# Настройки для конкретных краулеров (пример)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Указываем канонический адрес сайта
+Host: https://nonicotina.github.io

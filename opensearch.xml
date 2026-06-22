@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>NoNicotina</ShortName>
+  <Description>Поиск по антитабачному сайту NoNicotina</Description>
+  <Tags>курение никотин здоровье отказ</Tags>
+  <Contact>info@nonicotina.org</Contact>
+  <Url type="text/html" template="https://nonicotina.github.io/search?q={searchTerms}"/>
+  <Url type="application/x-suggestions+json" template="https://nonicotina.github.io/search-suggestions?q={searchTerms}"/>
+  <LongName>NoNicotina – поиск по материалам о вреде курения</LongName>
+  <Image height="16" width="16" type="image/x-icon">https://nonicotina.github.io/static/favicon/favicon-16x16.ico</Image>
+  <Image height="64" width="64" type="image/png">https://nonicotina.github.io/static/favicon/favicon-96x96.png</Image>
+  <Query role="example" searchTerms="как бросить курить" />
+  <Developer>Normi &amp; NoNicotina team</Developer>
+  <Attribution>Данные предоставлены сайтом NoNicotina</Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>ru</Language>
+  <Language>en</Language>
+  <Language>uk</Language>
+  <Language>fr</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

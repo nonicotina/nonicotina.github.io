@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NoNicotina — Антитабачный проект</title>
+    <link>https://nonicotina.github.io</link>
+    <description>Последние новости, советы и исследования о вреде курения и способах бросить.</description>
+    <language>ru</language>
+    <lastBuildDate>2026-06-22T12:00:00+03:00</lastBuildDate>
+    <atom:link href="https://nonicotina.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Шокирующая статистика: курение убивает каждые 6 секунд</title>
+      <link>https://nonicotina.github.io/#stats</link>
+      <guid isPermaLink="true">https://nonicotina.github.io/#stats</guid>
+      <pubDate>2026-06-20T10:00:00+03:00</pubDate>
+      <description><![CDATA[По данным ВОЗ, каждые 6 секунд в мире умирает один человек от последствий курения. Узнайте больше шокирующих цифр на нашем сайте.]]></description>
+    </item>
+
+    <item>
+      <title>Разоблачаем мифы: лёгкие сигареты не безопаснее</title>
+      <link>https://nonicotina.github.io/#myths</link>
+      <guid isPermaLink="true">https://nonicotina.github.io/#myths</guid>
+      <pubDate>2026-06-18T08:30:00+03:00</pubDate>
+      <description><![CDATA[Многие верят, что сигареты с пониженным содержанием смол безопаснее. Это миф — в них те же яды. Читайте правду в разделе «Мифы».]]></description>
+    </item>
+
+    <item>
+      <title>5 проверенных советов, как бросить курить</title>
+      <link>https://nonicotina.github.io/#tips</link>
+      <guid isPermaLink="true">https://nonicotina.github.io/#tips</guid>
+      <pubDate>2026-06-15T14:15:00+03:00</pubDate>
+      <description><![CDATA[Отказ от курения реален: назначьте дату, уберите пепельницы, замените привычку спортом. Полный список советов ждёт вас.]]></description>
+    </item>
+  </channel>
+</rss>
