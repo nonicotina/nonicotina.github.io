@@ -106,30 +106,45 @@
   "related_applications": [],
   "prefer_related_applications": false,
   "shortcuts": [
-    {
-      "name": "📊 Статистика",
-      "url": "/#stats",
-      "description": "Шокирующая статистика о курении"
-    },
-    {
-      "name": "💡 Мифы",
-      "url": "/#myths",
-      "description": "Развенчание мифов о курении"
-    },
-    {
-      "name": "📝 Советы",
-      "url": "/#tips",
-      "description": "Как бросить курить"
-    },
-    {
-      "name": "❤️ Вред организму",
-      "url": "/#harm",
-      "description": "Что курение делает с телом"
-    },
-    {
-      "name": "🏆 Истории",
-      "url": "/#stories",
-      "description": "Реальные истории победителей"
-    }
-  ]
+	  {
+		"name": "📊 Статистика",
+		"url": "/#stats",
+		"description": "Шокирующая статистика о курении",
+		"icons": [
+		  { "src": "/static/favicon/favicon-96x96.png", "sizes": "96x96", "type": "image/png" }
+		]
+	  },
+	  {
+		"name": "💡 Мифы",
+		"url": "/#myths",
+		"description": "Развенчание мифов о курении",
+		"icons": [
+		  { "src": "/static/favicon/favicon-96x96.png", "sizes": "96x96", "type": "image/png" }
+		]
+	  },
+	  {
+		"name": "📝 Советы",
+		"url": "/#tips",
+		"description": "Как бросить курить",
+		"icons": [
+		  { "src": "/static/favicon/favicon-96x96.png", "sizes": "96x96", "type": "image/png" }
+		]
+	  },
+	  {
+		"name": "❤️ Вред организму",
+		"url": "/#harm",
+		"description": "Что курение делает с телом",
+		"icons": [
+		  { "src": "/static/favicon/favicon-96x96.png", "sizes": "96x96", "type": "image/png" }
+		]
+	  },
+	  {
+		"name": "🏆 Истории",
+		"url": "/#stories",
+		"description": "Реальные истории победителей",
+		"icons": [
+		  { "src": "/static/favicon/favicon-96x96.png", "sizes": "96x96", "type": "image/png" }
+		]
+	  }
+	]
 }
