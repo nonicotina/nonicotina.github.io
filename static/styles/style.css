@@ -240,10 +240,10 @@ html[lang="fr"] .logo::after { content: "Pas de nicotine"; }
 /* Переключатель темы */
 .theme-toggle {
   display: flex;
-  gap: 2px;
-  background: var(--glass-bg);
+  gap: 4px;
+  background: rgba(128,128,128,0.15);
   border-radius: 20px;
-  padding: 2px;
+  padding: 3px;
   backdrop-filter: blur(12px);
 }
 .theme-btn {
@@ -256,14 +256,15 @@ html[lang="fr"] .logo::after { content: "Pas de nicotine"; }
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s, color 0.25s;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+}
+.theme-btn:hover:not(.active) {
+  background: rgba(128,128,128,0.2);
 }
 .theme-btn.active {
   background: var(--accent);
   color: #fff;
-}
-.theme-btn:hover:not(.active) {
-  background: rgba(0,102,255,0.15);
+  box-shadow: 0 0 8px rgba(0,102,255,0.5);
 }
 .theme-btn svg {
   width: 16px;
@@ -379,6 +380,8 @@ html[lang="fr"] .logo::after { content: "Pas de nicotine"; }
   border: 1px solid var(--glass-border);
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   animation: slideUp 0.3s ease;
+  max-height: 85vh;
+  overflow-y: auto;
 }
 .modal-content h2 {
   margin-bottom: 1.5rem;
@@ -887,4 +890,20 @@ body.bvi-active .glass {
   background: rgba(0,0,0,0.6);
   border: 2px solid #fff;
   box-shadow: none;
+}
+
+.bvi-toggle-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.bvi-toggle-btn:hover {
+  background: rgba(0,102,255,0.15);
 }

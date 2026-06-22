@@ -1,7 +1,7 @@
 # Security.txt file for nonicotina.github.io
 # According to RFC 9116
 
-Contact: mailto:security@nonicotina.org
+Contact: mailto:nenormikchel@gmail.com
 Contact: https://github.com/nonicotina/security
 
 Expires: 2027-12-31T23:59:59.000Z

@@ -2,7 +2,7 @@
 
 /* TEAM */
   Project Lead: Normi
-  Contact: info [at] nonicotina.org
+  Contact: nenormikchel [at] gmail.com
   GitHub: https://github.com/nonicotina
 
 /* THANKS */

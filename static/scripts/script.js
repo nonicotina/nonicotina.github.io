@@ -1,5 +1,6 @@
 /* ================================================================
    script.js – вся логика, кроме i18n (он в i18n.js)
+   Исправленная версия: модалка, BVI, стили, блокировка скролла
    ================================================================ */
 
 // --- DOM Ready ---
@@ -22,7 +23,6 @@ function initTheme() {
   document.querySelectorAll('.theme-btn').forEach(btn => {
     btn.addEventListener('click', () => setTheme(btn.dataset.theme));
   });
-  // Отслеживание системной темы
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (document.documentElement.getAttribute('data-theme') === 'system') {
       updateMetaThemeColor();
@@ -64,7 +64,6 @@ function initLangSwitch() {
     });
   });
 
-  // Закрытие по клику вне дропдауна
   document.addEventListener('click', (e) => {
     if (!currentBtn.contains(e.target) && !dropdown.contains(e.target)) {
       dropdown.classList.remove('active');
@@ -81,7 +80,6 @@ function initVersionSwitch() {
     const isMobile = document.body.classList.contains('force-mobile');
     localStorage.setItem('version', isMobile ? 'mobile' : 'desktop');
   });
-  // Восстановить сохранённую версию
   if (localStorage.getItem('version') === 'mobile') {
     document.body.classList.add('force-mobile');
   }
@@ -99,7 +97,6 @@ function initMobileMenu() {
     hamburger.setAttribute('aria-expanded', expanded);
   });
 
-  // Закрыть меню при клике на ссылку
   navList.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navList.classList.remove('open');
@@ -115,13 +112,21 @@ function initSettingsModal() {
   const closeBtn = document.getElementById('closeSettingsModal');
   if (!settingsBtn || !modal) return;
 
-  settingsBtn.addEventListener('click', () => modal.classList.add('open'));
-  closeBtn?.addEventListener('click', () => modal.classList.remove('open'));
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('open');
+  settingsBtn.addEventListener('click', () => {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden'; // БЛОКИРУЕМ СКРОЛЛ
   });
 
-  // Инициализация элементов управления настройками
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = ''; // ВОЗВРАЩАЕМ СКРОЛЛ
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
   initSettingControls();
 }
 
@@ -155,15 +160,27 @@ function initSettingControls() {
     });
   }
 
-  // Селекты
+  // Селекты обращения и стиля
   const addressSelect = document.getElementById('addressSelect');
   const styleSelect = document.getElementById('styleSelect');
+
+  async function applyCurrentStyle() {
+    const style = styleSelect?.value || 'normal';
+    const address = addressSelect?.value || 'formal';
+    // Приоритет: если стиль не normal, используем его, иначе обращение определяет тон
+    const effectiveStyle = style !== 'normal' ? style : address;
+    if (window.applyStyleOverrides) {
+      await window.applyStyleOverrides(effectiveStyle, window.currentLang || 'ru');
+    }
+  }
+
   if (addressSelect) {
     addressSelect.addEventListener('change', () => {
       const val = addressSelect.value;
       document.body.classList.remove('address-formal', 'address-informal');
       document.body.classList.add('address-' + val);
       saveSetting('address', val);
+      applyCurrentStyle(); // ОБНОВЛЯЕМ ТЕКСТ
     });
   }
   if (styleSelect) {
@@ -172,10 +189,11 @@ function initSettingControls() {
       document.body.classList.remove('style-formal', 'style-informal', 'style-normal', 'style-friendly');
       document.body.classList.add('style-' + val);
       saveSetting('style', val);
+      applyCurrentStyle(); // ОБНОВЛЯЕМ ТЕКСТ
     });
   }
 
-  // Восстановление сохранённых настроек
+  // Восстановление сохранённых настроек (включая стиль текста)
   loadSavedSettings();
 }
 
@@ -218,11 +236,24 @@ function loadSavedSettings() {
     const select = document.getElementById('styleSelect');
     if (select) select.value = settings.style;
   }
+
+  // Применяем стиль текста после восстановления всех значений
+  const style = settings.style || 'normal';
+  const address = settings.address || 'formal';
+  const effectiveStyle = style !== 'normal' ? style : address;
+  if (window.applyStyleOverrides) {
+    window.applyStyleOverrides(effectiveStyle, window.currentLang || 'ru');
+  }
 }
 
 // ===================== BVI (слабовидящие) =====================
 function initBVIControls() {
-  // Открытие/закрытие панели BVI
+  // Кнопка открытия/закрытия панели BVI (добавлена в HTML)
+  const bviToggleBtn = document.getElementById('bviToggleBtn');
+  bviToggleBtn?.addEventListener('click', () => {
+    document.body.classList.toggle('bvi-active');
+  });
+
   const bviPanel = document.getElementById('bviPanel');
   if (!bviPanel) return;
 
@@ -234,16 +265,8 @@ function initBVIControls() {
   // Кнопка сброса BVI (обычная версия)
   document.getElementById('bviReset')?.addEventListener('click', () => {
     document.body.classList.remove('bvi-active');
-    // Сбросить все BVI-стили (можно добавить очистку)
   });
 
-  // Иконка для слабовидящих (предположим, где-то есть кнопка .bvi-toggle-btn)
-  const bviToggleBtn = document.querySelector('.bvi-toggle-btn');
-  bviToggleBtn?.addEventListener('click', () => {
-    document.body.classList.toggle('bvi-active');
-  });
-
-  // Обработчики для блоков BVI (шрифт, размер, цвет, изображения, речь)
   // Шрифт
   bviPanel.querySelectorAll('.bvi-block-font .bvi-link').forEach(link => {
     link.addEventListener('click', (e) => {
@@ -267,7 +290,8 @@ function initBVIControls() {
       const size = link.dataset.fontsize;
       if (size) {
         document.documentElement.style.setProperty('--font-base', size + 'px');
-        document.getElementById('fontSizeRange')?.setAttribute('value', size);
+        const range = document.getElementById('fontSizeRange');
+        if (range) range.value = size;
         const valEl = document.getElementById('fontSizeValue');
         if (valEl) valEl.textContent = size + 'px';
       }
@@ -302,12 +326,12 @@ function initBVIControls() {
     document.body.classList.remove('bvi-images-on', 'bvi-images-off');
   });
 
-  // Синтез речи (заглушка)
+  // Синтез речи
   bviPanel.querySelector('.bvi-speech-on')?.addEventListener('click', () => {
     if ('speechSynthesis' in window) {
       const text = document.body.textContent;
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = currentLang;
+      utterance.lang = window.currentLang || 'ru';
       speechSynthesis.cancel();
       speechSynthesis.speak(utterance);
     }
@@ -360,8 +384,7 @@ function initSmoothScroll() {
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });
-        // Обновить URL хеш
-        history.pushState(null, null, href);
+        history.replaceState(null, null, href); // Заменяем, чтобы не захламлять историю
       }
     });
   });
@@ -369,17 +392,12 @@ function initSmoothScroll() {
 
 // ===================== FAQ (аккордеон) =====================
 function initFAQ() {
-  // Просто нативное поведение details, можно добавить анимацию
   const details = document.querySelectorAll('.faq-item');
   details.forEach(detail => {
     detail.addEventListener('toggle', () => {
       if (detail.open) {
-        // подсветка или анимация
+        // опциональная анимация
       }
     });
   });
 }
-
-// ===================== ПРОЧЕЕ =====================
-// Можно добавить дополнительные фичи: модалка для контактов, форма подписки и т.д.
-// Пока оставим как есть.
