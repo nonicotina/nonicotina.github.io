@@ -160,7 +160,7 @@
   <link rel="stylesheet" href="static/styles/style.css">
 </head>
 <body>
-  <!-- BVI панель (сначала скрыта, управляется классом bvi-active на body) -->
+  <!-- ================= BVI-панель (вне wrapper, чтобы fixed работал от viewport) ================= -->
   <div class="bvi-panel" id="bviPanel">
     <div class="bvi-blocks bvi-block-center">
       <div class="bvi-block bvi-block-font">
@@ -202,70 +202,186 @@
     </div>
   </div>
 
-  <header class="header glass">
-    <a href="/" class="logo" aria-label="NoNicotina"></a>
-    <nav class="nav" role="navigation">
-      <button class="hamburger" aria-expanded="false" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-list">
-        <li><a href="#home" data-i18n="nav_home">Главная</a></li>
-        <li><a href="#stats" data-i18n="nav_stats">Статистика</a></li>
-        <li><a href="#myths" data-i18n="nav_myths">Мифы</a></li>
-        <li><a href="#tips" data-i18n="nav_tips">Советы</a></li>
-        <li><a href="#harm" data-i18n="nav_about">О вреде</a></li>
-        <li><a href="#stories" data-i18n="nav_stories">Истории</a></li>
-        <li><a href="#faq" data-i18n="nav_faq">Вопросы</a></li>
-        <li><a href="#contacts" data-i18n="nav_contacts">Контакты</a></li>
-      </ul>
-    </nav>
-    <div class="controls">
-      <!-- Переключатель ПК/Мобильная версия -->
-      <button class="version-switch" id="versionSwitch" aria-label="Switch version">
-        <svg class="icon-desktop" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M12.1665 13.5811V14.7803H3.66651V13.5811H12.1665Z"/><path d="M13.4453 7.02379C13.4453 6.04702 13.4452 5.3616 13.3887 4.83434C13.3333 4.31828 13.2302 4.02378 13.0723 3.80309C12.9446 3.62475 12.7877 3.46883 12.6094 3.34117C12.3887 3.18328 12.0942 3.08007 11.5781 3.02477C11.0508 2.96829 10.3655 2.96715 9.38867 2.96715H6.61035C5.63359 2.96715 4.94816 2.96827 4.4209 3.02477C3.90486 3.0801 3.61034 3.18321 3.38965 3.34117C3.21143 3.46878 3.05534 3.62487 2.92774 3.80309C2.76977 4.02377 2.66667 4.3183 2.61133 4.83434C2.55483 5.3616 2.55371 6.04702 2.55371 7.02379C2.55371 8.0006 2.55485 8.68596 2.61133 9.21324C2.66663 9.72936 2.76983 10.0238 2.92774 10.2445C3.0554 10.4228 3.21131 10.5797 3.38965 10.7074C3.61034 10.8654 3.90484 10.9685 4.4209 11.0238C4.94816 11.0803 5.63359 11.0804 6.61035 11.0804H9.38867C10.3654 11.0804 11.0508 11.0803 11.5781 11.0238C12.0941 10.9685 12.3887 10.8652 12.6094 10.7074C12.7877 10.5797 12.9446 10.4229 13.0723 10.2445C13.2301 10.0238 13.3334 9.72927 13.3887 9.21324C13.4452 8.68596 13.4453 8.00058 13.4453 7.02379ZM14.6455 7.02379C14.6455 7.97428 14.646 8.73509 14.5811 9.34117C14.5149 9.95828 14.3756 10.4858 14.0479 10.9437C13.8436 11.229 13.5938 11.4788 13.3086 11.683C12.8507 12.0108 12.3232 12.15 11.7061 12.2162C11.1 12.2811 10.3391 12.2806 9.38867 12.2806H6.61035C5.66018 12.2806 4.89991 12.2811 4.29395 12.2162C3.67684 12.15 3.14935 12.0108 2.69141 11.683C2.40613 11.4788 2.15639 11.229 1.95215 10.9437C1.62436 10.4858 1.4841 9.95828 1.41797 9.34117C1.35305 8.73511 1.35449 7.97424 1.35449 7.02379C1.35449 6.07366 1.35308 5.31333 1.41797 4.70738C1.4841 4.09028 1.62436 3.56279 1.95215 3.10485C2.15638 2.81956 2.40613 2.56982 2.69141 2.36559C3.14935 2.03779 3.67684 1.89753 4.29395 1.83141C4.8999 1.76652 5.66022 1.76793 6.61035 1.76793H9.38867C10.3391 1.76793 11.1 1.76649 11.7061 1.83141C12.3232 1.89753 12.8507 2.03779 13.3086 2.36559C13.5939 2.56982 13.8436 2.81957 14.0479 3.10485C14.3756 3.56279 14.5149 4.09028 14.5811 4.70738C14.646 5.31335 14.6455 6.07362 14.6455 7.02379Z"/></svg>
-        <svg class="icon-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M12.5 1A3.5 3.5 0 0 1 16 4.5v11a3.5 3.5 0 0 1-3.5 3.5h-5A3.5 3.5 0 0 1 4 15.5v-11A3.5 3.5 0 0 1 7.5 1h5Zm-5 1.3a2.2 2.2 0 0 0-2.2 2.2v11a2.2 2.2 0 0 0 2.2 2.2h5a2.2 2.2 0 0 0 2.2-2.2v-11a2.2 2.2 0 0 0-2.2-2.2h-5Zm4.65 2.35h-4.3v-1.3h4.3v1.3Z"/></svg>
-      </button>
-	  <!-- Переключатель Версии для слабовидящих -->
-		<button class="bvi-toggle-btn" id="bviToggleBtn" aria-label="Версия для слабовидящих">
-		  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 41 41" class="impaired-icon" width="20" height="20">
-			<circle cx="31.5" cy="19.5" r="7.5" stroke="currentColor" stroke-width="2"></circle>
-			<circle cx="9.5" cy="19.5" r="7.5" stroke="currentColor" stroke-width="2"></circle>
-			<path stroke="currentColor" stroke-width="2" d="M15 15c3.333-4 6.667-4 10 0"></path>
-		  </svg>
-		</button>
-      <!-- Дропдаун языков -->
-      <div class="lang-switch">
-        <button class="lang-current" aria-haspopup="listbox">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABE0lEQVR4AdyTPWrDQBCFnwYMKnSRVCF1IE0Kgy8ip1ahhBRSlcZHyEVkJW1OESw37vwDtrGRbGnleQKDUb3bGPZjZmfhm9WglSiKhmmafrkgjuOhBEEwSpLkwwW+748EANHgZIlLeXfjO2jwPf3H62eOl/fMKnTSLY0x2OxP2B7OVqGTbqkNsNqV2qSyCp10izEtDmXtBLrl3Bi0+kM12sgmdNItT5sZwuIH4yLvCDUS7m/jNe/XuSc8J8wJc7rlcV0gnE9VnnW8FRnIuBevtX6de8JzwpyE8xx060OrdUC6Wv0om6gSqCE6ek09xfbyQLcYfQeeAz+ddAsHU+rlq8EANqGTbvmtjpOH5eLZBX/VcXIBAAD//zXCV3UAAAAGSURBVAMA0it1yMnQdEwAAAAASUVORK5CYII=" alt="RU" width="16" height="12">
-        </button>
-        <ul class="lang-dropdown" role="listbox">
-          <li data-lang="ru"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABE0lEQVR4AdyTPWrDQBCFnwYMKnSRVCF1IE0Kgy8ip1ahhBRSlcZHyEVkJW1OESw37vwDtrGRbGnleQKDUb3bGPZjZmfhm9WglSiKhmmafrkgjuOhBEEwSpLkwwW+748EANHgZIlLeXfjO2jwPf3H62eOl/fMKnTSLY0x2OxP2B7OVqGTbqkNsNqV2qSyCp10izEtDmXtBLrl3Bi0+kM12sgmdNItT5sZwuIH4yLvCDUS7m/jNe/XuSc8J8wJc7rlcV0gnE9VnnW8FRnIuBevtX6de8JzwpyE8xx060OrdUC6Wv0om6gSqCE6ek09xfbyQLcYfQeeAz+ddAsHU+rlq8EANqGTbvmtjpOH5eLZBX/VcXIBAAD//zXCV3UAAAAGSURBVAMA0it1yMnQdEwAAAAASUVORK5CYII=" alt="RU"></li>
-          <li data-lang="en"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAEdElEQVR4AayUeUxcRRzHvzvQ7X0A4UpQqqGwxXK1lFCfUhqayhUPjlA21pZwFRYBbTke0BYX8yASoSYSaYG6SEoNFC2Gw4MStGmkNTVRoKYWBWMEainushx7vufMwz8ajfSfJvPJ/N5vfu8zbzLzhmTGJb5QWVkplJVVCMHB8YKPT/S/OCQkJGQKpUmHhXxVsAyLWe6/tdFCYGC8cDJbI+T7BgrHqZtsmhiPLQjaw1edPsUPDFziCwtP8mr1cUruP+TweXkn+PK8fL5MfYQvo7CY5dTqbF6tZnU5tM/hC94o5vubqvninf58TUc77x66K5ZMB4QRaY0S9+sasNVuQnp6BFQqd+j1C5QlGZPJCtFshs1ggE1vgGQygeX0+iV5XK9fhK+fG1K9bXD46nNsS0qAo78Kd+/eJ+Tb4Qk0jtphCXsWf9a/B3F0DKmp4UhI2A2LxYzFRTOsVjvoA6SFJUiLFKtVzrExi9WMV2J24tD0d5B+m4RrYS4Mazehvv5LXL/+M4goArdHp3CmfQxTUYkwtHfige4iIp7zQVFRDBwdRZjNVkgWC8SFBRkWs5yjUoHC5Gewo6cNa1UquORkYPSXOZSWdmBkZArMTSRJhNFowsy0EWfqv8Y3IbGwTt/DTIUAb2cltNpk+Pp6QDRZYDcYZVjs5+cBfr8r1rc2wzn9GDbFHERX1/coK+vC1JRRdjI3SU9/HleuaNDXV4De3gKkHOHgwb8Jz+pTcNi2FW5uWxAU5IWVPZiHzTAvx4GBXvBOicOTug+wPiQAhCiQlLQHPT0Fsos5mZs8aNThTkgU7gQdWJXZs+ch0hUwWPyoeuZkbgKbCNvsLGxzc48X6oTNzjbZvnIy2Ol4zIh0l8m60BC4lrwO1+LV2bBvLyS7KMPiR9Uz5wbqJiNwQpuDCq3ET6bXLQTOJzRwp5MqvTyx3mc73OjkG7kwQKT/A4XFbnTcvTQfLmmpUDgSbI47iKtP7YNO4St7mPMH6iZDQ7dRXv4JeL4TnZ03EBXlD7K8hInDx2D4uAONPy5DW9UDSBIkumS2CtBYq+2BIHwGR3dX+g/4YuLFRISO38TA0E/U1SE7mZvY6Uex86pW78XgYDHcl+cwHhEL4umJGq84lFT1Mp88AURppacT0EYll5GW1gyHyAj4fNED6dPLaHn6d+TnHaDviKDfA7JmDVBXl4K2tmzY+/rxa9zLsB3NQOLwZpw7dw2AA+X/mgN0umGEh7+NSWkjdlzrh0IB5A1/iLZ3X8LmLUqQ3NxIaLIi8EdRBWbfOYuR/Brsr76FWzcmqXU1OR2WG8HY2D2Ehb2FCxdv4on36+CkyUJgQzle3bUORDE7K43FJGPhLz3OR2bgaEk3jAYTlPSeUSpBe9Dl2mCiV4qZLpfBYkmyyWMrNQp6u9qh0bQiK6sZiI+G56WPYJ2akUj31YHagMFuTtXSwNXWvcaZzS2cxdL0EDpOq03gtp8u4sKMEzIsZjmLRfdQHXvnAtfUlMm5uGzjnHYHcQPL87V/AwAA//8RppgFAAAABklEQVQDAJel4SerKVo+AAAAAElFTkSuQmCC" alt="EN"></li>
-          <li data-lang="uk"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABQklEQVR4AbSUy0rDQBSGfw50oW/gGxTcu/EBKtW1C8G6c1W6qS76Am76ONKF4Nu4ldLQ1GSSuXj+xpFSWjEwCXw5M5OTbzK3SP/qdtC/eXjpgvPr+4GE3slwNHme3Y2nSRlNnmZWZCguBMlNjVVRbck0Rtq2xXzG3FjQLSEAeVVjU9ktucZI27aYz0gn3WK9x7q0yMs6KXTSLV47yAqDrKwazE6M5fjsUNzP+a0b0C3Oo5n7+DLXgGVGwvJf7Of81FdfFegWFzyWWsmKGimhk25dA+AzL7HcmKTQaXV2ZHzxho/pYyfQLUANcD8FpzEluv/VLZ7jACs6HqQkgG7xB+U6kn93djyXbj0HFs21+/VtRnQsF3oOLAS6TZsOOrirW9h/B+qtkm7+7EJRAkXZSwygmzPI4tXNT8/Wl12weHfzbwAAAP//zxDF7AAAAAZJREFUAwCmvCgv5Kq5MAAAAABJRU5ErkJggg==" alt="UA"></li>
-          <li data-lang="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABw0lEQVR4AayUsW7bMBCGf7NJDOg5MngsEKCLp6AFWnTo0s1AsjdoO3Sq08GeXKB9hD5Nn6RDgQ6tY1sSJdkR765HRQGUhDKXSPp0PFC6n0ceaUajFy+Pj18t+pjP54t9fBw9XYT4cnLy9dPp6RtT1wevz8/fTyeTdy0XHXsxnc1me7mcnE0vA3x4e/YZf66eG0CMtVtsNlVL2bElYpdLM7hN2kBpCo/32RaoiYxxjmHtDkURJiYgGkiKEh62JTy+Ldo+EIFhFmRZhTzvcOurjQmwtRr0IZTnGLJmQMRI0+1dstZXGxOgNNdpCZGhYGHjBdbrop336oGNCTi/BiHWKaQmNGuwuio1gypITIA1gxCkAiAHzUDw91+G5TIPEhNwqxWCLJeAazJwvRXkKysm0FRMW0X328x8U0VaTSCSIFEBLRIJ4YP6NSDfqY5XCxETABOCtDFNkgyfSONoBronuItmFRMQnYY+WBxMabes8eEDSze4b/uOmIJ+hwAD/U+c7uSa9K3O4z8DsGanRwVj4OUeXwGstxnqeQoQjo4QpKoq7GN3eIgQWx2wjlvMjn9/u77+Me4jSZLxPp7lv8Z9/CT6/h8AAP//JmOfhAAAAAZJREFUAwDRdry3ZYNm6wAAAABJRU5ErkJggg==" alt="FR"></li>
-        </ul>
-      </div>
-      <!-- Тема -->
-      <div class="theme-toggle">
-        <button class="theme-btn" data-theme="system" aria-label="System theme">
-          <svg class="icon-system-desktop" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M12.1665 13.5811V14.7803H3.66651V13.5811H12.1665Z"/><path d="M13.4453 7.02379C13.4453 6.04702 13.4452 5.3616 13.3887 4.83434C13.3333 4.31828 13.2302 4.02378 13.0723 3.80309C12.9446 3.62475 12.7877 3.46883 12.6094 3.34117C12.3887 3.18328 12.0942 3.08007 11.5781 3.02477C11.0508 2.96829 10.3655 2.96715 9.38867 2.96715H6.61035C5.63359 2.96715 4.94816 2.96827 4.4209 3.02477C3.90486 3.0801 3.61034 3.18321 3.38965 3.34117C3.21143 3.46878 3.05534 3.62487 2.92774 3.80309C2.76977 4.02377 2.66667 4.3183 2.61133 4.83434C2.55483 5.3616 2.55371 6.04702 2.55371 7.02379C2.55371 8.0006 2.55485 8.68596 2.61133 9.21324C2.66663 9.72936 2.76983 10.0238 2.92774 10.2445C3.0554 10.4228 3.21131 10.5797 3.38965 10.7074C3.61034 10.8654 3.90484 10.9685 4.4209 11.0238C4.94816 11.0803 5.63359 11.0804 6.61035 11.0804H9.38867C10.3654 11.0804 11.0508 11.0803 11.5781 11.0238C12.0941 10.9685 12.3887 10.8652 12.6094 10.7074C12.7877 10.5797 12.9446 10.4229 13.0723 10.2445C13.2301 10.0238 13.3334 9.72927 13.3887 9.21324C13.4452 8.68596 13.4453 8.00058 13.4453 7.02379ZM14.6455 7.02379C14.6455 7.97428 14.646 8.73509 14.5811 9.34117C14.5149 9.95828 14.3756 10.4858 14.0479 10.9437C13.8436 11.229 13.5938 11.4788 13.3086 11.683C12.8507 12.0108 12.3232 12.15 11.7061 12.2162C11.1 12.2811 10.3391 12.2806 9.38867 12.2806H6.61035C5.66018 12.2806 4.89991 12.2811 4.29395 12.2162C3.67684 12.15 3.14935 12.0108 2.69141 11.683C2.40613 11.4788 2.15639 11.229 1.95215 10.9437C1.62436 10.4858 1.4841 9.95828 1.41797 9.34117C1.35305 8.73511 1.35449 7.97424 1.35449 7.02379C1.35449 6.07366 1.35308 5.31333 1.41797 4.70738C1.4841 4.09028 1.62436 3.56279 1.95215 3.10485C2.15638 2.81956 2.40613 2.56982 2.69141 2.36559C3.14935 2.03779 3.67684 1.89753 4.29395 1.83141C4.8999 1.76652 5.66022 1.76793 6.61035 1.76793H9.38867C10.3391 1.76793 11.1 1.76649 11.7061 1.83141C12.3232 1.89753 12.8507 2.03779 13.3086 2.36559C13.5939 2.56982 13.8436 2.81957 14.0479 3.10485C14.3756 3.56279 14.5149 4.09028 14.5811 4.70738C14.646 5.31335 14.6455 6.07362 14.6455 7.02379Z"/></svg>
-          <svg class="icon-system-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M12.5 1A3.5 3.5 0 0 1 16 4.5v11a3.5 3.5 0 0 1-3.5 3.5h-5A3.5 3.5 0 0 1 4 15.5v-11A3.5 3.5 0 0 1 7.5 1h5Zm-5 1.3a2.2 2.2 0 0 0-2.2 2.2v11a2.2 2.2 0 0 0 2.2 2.2h5a2.2 2.2 0 0 0 2.2-2.2v-11a2.2 2.2 0 0 0-2.2-2.2h-5Zm4.65 2.35h-4.3v-1.3h4.3v1.3Z"/></svg>
-        </button>
-        <button class="theme-btn" data-theme="light" aria-label="Light theme">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.3496 8C11.3496 6.14985 9.85015 4.65039 8 4.65039C6.14985 4.65039 4.65039 6.14985 4.65039 8C4.65039 9.85015 6.14985 11.3496 8 11.3496C9.85015 11.3496 11.3496 9.85015 11.3496 8ZM12.6504 8C12.6504 10.5681 10.5681 12.6504 8 12.6504C5.43188 12.6504 3.34961 10.5681 3.34961 8C3.34961 5.43188 5.43188 3.34961 8 3.34961C10.5681 3.34961 12.6504 5.43188 12.6504 8Z"/><path d="M8.65039 0.5V2.5H7.34961V0.5H8.65039Z"/><path d="M8.65039 13.5V15.5H7.34961V13.5H8.65039Z"/><path d="M3.15808 2.24035L4.57229 3.65456L3.6525 4.57435L2.23829 3.16014L3.15808 2.24035Z"/><path d="M12.3505 11.4327L13.7647 12.8469L12.8449 13.7667L11.4307 12.3525L12.3505 11.4327Z"/><path d="M2.24537 12.8469L3.65958 11.4327L4.57937 12.3525L3.16516 13.7667L2.24537 12.8469Z"/><path d="M11.4377 3.65455L12.852 2.24033L13.7718 3.16012L12.3575 4.57434L11.4377 3.65455Z"/><path d="M0.5 7.35461H2.5V8.6554H0.5L0.5 7.35461Z"/><path d="M13.5 7.35461H15.5V8.6554H13.5V7.35461Z"/></svg>
-        </button>
-        <button class="theme-btn" data-theme="dark" aria-label="Dark theme">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M13.2764 9.52324C12.5607 9.97754 11.7177 10.242 10.7812 10.242C8.11386 10.2419 5.95042 8.07997 5.9502 5.41289C5.9502 4.48128 6.21453 3.61071 6.67188 2.87285C4.30332 3.4658 2.54992 5.60845 2.5498 8.16093C2.5498 11.1712 4.99103 13.6102 8 13.6102C10.5383 13.6102 12.6709 11.8724 13.2764 9.52324ZM7.05078 5.41289C7.051 7.47224 8.72116 9.1423 10.7812 9.14238C11.9248 9.14238 12.887 8.63397 13.5781 7.8084C13.7266 7.63106 13.9701 7.56547 14.1875 7.64433C14.4049 7.72329 14.5497 7.9297 14.5498 8.16093C14.5498 11.7766 11.6161 14.7098 8 14.7098C4.38402 14.7098 1.4502 11.7792 1.4502 8.16093C1.45033 4.54322 4.3812 1.61015 8 1.61015C8.23027 1.61015 8.43585 1.75352 8.51562 1.96953C8.59536 2.18554 8.53241 2.42829 8.35742 2.57793C7.55573 3.26311 7.05078 4.27876 7.05078 5.41289Z"/></svg>
-        </button>
-      </div>
-      <!-- Шестерёнка настроек -->
-      <button class="settings-btn" id="settingsBtn" aria-label="Settings">
-        <svg data-component="Octicon" aria-hidden="true" focusable="false" class="octicon octicon-gear" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align: text-bottom;"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"/></svg>
-      </button>
-    </div>
-  </header>
+  <!-- ================= ОСНОВНОЙ КОНТЕНТ (обёрнут для фильтра) ================= -->
+  <div class="wrapper">
 
-  <!-- Панель настроек (модальное окно) -->
+    <header class="header glass">
+      <a href="/" class="logo" aria-label="NoNicotina"></a>
+      <nav class="nav" role="navigation">
+        <button class="hamburger" aria-expanded="false" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#home" data-i18n="nav_home">Главная</a></li>
+          <li><a href="#stats" data-i18n="nav_stats">Статистика</a></li>
+          <li><a href="#myths" data-i18n="nav_myths">Мифы</a></li>
+          <li><a href="#tips" data-i18n="nav_tips">Советы</a></li>
+          <li><a href="#harm" data-i18n="nav_about">О вреде</a></li>
+          <li><a href="#stories" data-i18n="nav_stories">Истории</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">Вопросы</a></li>
+          <li><a href="#contacts" data-i18n="nav_contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="controls">
+        <!-- Переключатель ПК/Мобильная версия -->
+        <button class="version-switch" id="versionSwitch" aria-label="Switch version">
+          <svg class="icon-desktop" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M12.1665 13.5811V14.7803H3.66651V13.5811H12.1665Z"/><path d="M13.4453 7.02379C13.4453 6.04702 13.4452 5.3616 13.3887 4.83434C13.3333 4.31828 13.2302 4.02378 13.0723 3.80309C12.9446 3.62475 12.7877 3.46883 12.6094 3.34117C12.3887 3.18328 12.0942 3.08007 11.5781 3.02477C11.0508 2.96829 10.3655 2.96715 9.38867 2.96715H6.61035C5.63359 2.96715 4.94816 2.96827 4.4209 3.02477C3.90486 3.0801 3.61034 3.18321 3.38965 3.34117C3.21143 3.46878 3.05534 3.62487 2.92774 3.80309C2.76977 4.02377 2.66667 4.3183 2.61133 4.83434C2.55483 5.3616 2.55371 6.04702 2.55371 7.02379C2.55371 8.0006 2.55485 8.68596 2.61133 9.21324C2.66663 9.72936 2.76983 10.0238 2.92774 10.2445C3.0554 10.4228 3.21131 10.5797 3.38965 10.7074C3.61034 10.8654 3.90484 10.9685 4.4209 11.0238C4.94816 11.0803 5.63359 11.0804 6.61035 11.0804H9.38867C10.3654 11.0804 11.0508 11.0803 11.5781 11.0238C12.0941 10.9685 12.3887 10.8652 12.6094 10.7074C12.7877 10.5797 12.9446 10.4229 13.0723 10.2445C13.2301 10.0238 13.3334 9.72927 13.3887 9.21324C13.4452 8.68596 13.4453 8.00058 13.4453 7.02379ZM14.6455 7.02379C14.6455 7.97428 14.646 8.73509 14.5811 9.34117C14.5149 9.95828 14.3756 10.4858 14.0479 10.9437C13.8436 11.229 13.5938 11.4788 13.3086 11.683C12.8507 12.0108 12.3232 12.15 11.7061 12.2162C11.1 12.2811 10.3391 12.2806 9.38867 12.2806H6.61035C5.66018 12.2806 4.89991 12.2811 4.29395 12.2162C3.67684 12.15 3.14935 12.0108 2.69141 11.683C2.40613 11.4788 2.15639 11.229 1.95215 10.9437C1.62436 10.4858 1.4841 9.95828 1.41797 9.34117C1.35305 8.73511 1.35449 7.97424 1.35449 7.02379C1.35449 6.07366 1.35308 5.31333 1.41797 4.70738C1.4841 4.09028 1.62436 3.56279 1.95215 3.10485C2.15638 2.81956 2.40613 2.56982 2.69141 2.36559C3.14935 2.03779 3.67684 1.89753 4.29395 1.83141C4.8999 1.76652 5.66022 1.76793 6.61035 1.76793H9.38867C10.3391 1.76793 11.1 1.76649 11.7061 1.83141C12.3232 1.89753 12.8507 2.03779 13.3086 2.36559C13.5939 2.56982 13.8436 2.81957 14.0479 3.10485C14.3756 3.56279 14.5149 4.09028 14.5811 4.70738C14.646 5.31335 14.6455 6.07362 14.6455 7.02379Z"/></svg>
+          <svg class="icon-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M12.5 1A3.5 3.5 0 0 1 16 4.5v11a3.5 3.5 0 0 1-3.5 3.5h-5A3.5 3.5 0 0 1 4 15.5v-11A3.5 3.5 0 0 1 7.5 1h5Zm-5 1.3a2.2 2.2 0 0 0-2.2 2.2v11a2.2 2.2 0 0 0 2.2 2.2h5a2.2 2.2 0 0 0 2.2-2.2v-11a2.2 2.2 0 0 0-2.2-2.2h-5Zm4.65 2.35h-4.3v-1.3h4.3v1.3Z"/></svg>
+        </button>
+        <!-- Переключатель Версии для слабовидящих -->
+        <button class="bvi-toggle-btn" id="bviToggleBtn" aria-label="Версия для слабовидящих">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 41 41" class="impaired-icon" width="20" height="20">
+            <circle cx="31.5" cy="19.5" r="7.5" stroke="currentColor" stroke-width="2"></circle>
+            <circle cx="9.5" cy="19.5" r="7.5" stroke="currentColor" stroke-width="2"></circle>
+            <path stroke="currentColor" stroke-width="2" d="M15 15c3.333-4 6.667-4 10 0"></path>
+          </svg>
+        </button>
+        <!-- Дропдаун языков -->
+        <div class="lang-switch">
+          <button class="lang-current" aria-haspopup="listbox">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABE0lEQVR4AdyTPWrDQBCFnwYMKnSRVCF1IE0Kgy8ip1ahhBRSlcZHyEVkJW1OESw37vwDtrGRbGnleQKDUb3bGPZjZmfhm9WglSiKhmmafrkgjuOhBEEwSpLkwwW+748EANHgZIlLeXfjO2jwPf3H62eOl/fMKnTSLY0x2OxP2B7OVqGTbqkNsNqV2qSyCp10izEtDmXtBLrl3Bi0+kM12sgmdNItT5sZwuIH4yLvCDUS7m/jNe/XuSc8J8wJc7rlcV0gnE9VnnW8FRnIuBevtX6de8JzwpyE8xx060OrdUC6Wv0om6gSqCE6ek09xfbyQLcYfQeeAz+ddAsHU+rlq8EANqGTbvmtjpOH5eLZBX/VcXIBAAD//zXCV3UAAAAGSURBVAMA0it1yMnQdEwAAAAASUVORK5CYII=" alt="RU" width="16" height="12">
+          </button>
+          <ul class="lang-dropdown" role="listbox">
+            <li data-lang="ru"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABE0lEQVR4AdyTPWrDQBCFnwYMKnSRVCF1IE0Kgy8ip1ahhBRSlcZHyEVkJW1OESw37vwDtrGRbGnleQKDUb3bGPZjZmfhm9WglSiKhmmafrkgjuOhBEEwSpLkwwW+748EANHgZIlLeXfjO2jwPf3H62eOl/fMKnTSLY0x2OxP2B7OVqGTbqkNsNqV2qSyCp10izEtDmXtBLrl3Bi0+kM12sgmdNItT5sZwuIH4yLvCDUS7m/jNe/XuSc8J8wJc7rlcV0gnE9VnnW8FRnIuBevtX6de8JzwpyE8xx060OrdUC6Wv0om6gSqCE6ek09xfbyQLcYfQeeAz+ddAsHU+rlq8EANqGTbvmtjpOH5eLZBX/VcXIBAAD//zXCV3UAAAAGSURBVAMA0it1yMnQdEwAAAAASUVORK5CYII=" alt="RU"></li>
+            <li data-lang="en"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAEdElEQVR4AayUeUxcRRzHvzvQ7X0A4UpQqqGwxXK1lFCfUhqayhUPjlA21pZwFRYBbTke0BYX8yASoSYSaYG6SEoNFC2Gw4MStGmkNTVRoKYWBWMEainushx7vufMwz8ajfSfJvPJ/N5vfu8zbzLzhmTGJb5QWVkplJVVCMHB8YKPT/S/OCQkJGQKpUmHhXxVsAyLWe6/tdFCYGC8cDJbI+T7BgrHqZtsmhiPLQjaw1edPsUPDFziCwtP8mr1cUruP+TweXkn+PK8fL5MfYQvo7CY5dTqbF6tZnU5tM/hC94o5vubqvninf58TUc77x66K5ZMB4QRaY0S9+sasNVuQnp6BFQqd+j1C5QlGZPJCtFshs1ggE1vgGQygeX0+iV5XK9fhK+fG1K9bXD46nNsS0qAo78Kd+/eJ+Tb4Qk0jtphCXsWf9a/B3F0DKmp4UhI2A2LxYzFRTOsVjvoA6SFJUiLFKtVzrExi9WMV2J24tD0d5B+m4RrYS4Mazehvv5LXL/+M4goArdHp3CmfQxTUYkwtHfige4iIp7zQVFRDBwdRZjNVkgWC8SFBRkWs5yjUoHC5Gewo6cNa1UquORkYPSXOZSWdmBkZArMTSRJhNFowsy0EWfqv8Y3IbGwTt/DTIUAb2cltNpk+Pp6QDRZYDcYZVjs5+cBfr8r1rc2wzn9GDbFHERX1/coK+vC1JRRdjI3SU9/HleuaNDXV4De3gKkHOHgwb8Jz+pTcNi2FW5uWxAU5IWVPZiHzTAvx4GBXvBOicOTug+wPiQAhCiQlLQHPT0Fsos5mZs8aNThTkgU7gQdWJXZs+ch0hUwWPyoeuZkbgKbCNvsLGxzc48X6oTNzjbZvnIy2Ol4zIh0l8m60BC4lrwO1+LV2bBvLyS7KMPiR9Uz5wbqJiNwQpuDCq3ET6bXLQTOJzRwp5MqvTyx3mc73OjkG7kwQKT/A4XFbnTcvTQfLmmpUDgSbI47iKtP7YNO4St7mPMH6iZDQ7dRXv4JeL4TnZ03EBXlD7K8hInDx2D4uAONPy5DW9UDSBIkumS2CtBYq+2BIHwGR3dX+g/4YuLFRISO38TA0E/U1SE7mZvY6Uex86pW78XgYDHcl+cwHhEL4umJGq84lFT1Mp88AURppacT0EYll5GW1gyHyAj4fNED6dPLaHn6d+TnHaDviKDfA7JmDVBXl4K2tmzY+/rxa9zLsB3NQOLwZpw7dw2AA+X/mgN0umGEh7+NSWkjdlzrh0IB5A1/iLZ3X8LmLUqQ3NxIaLIi8EdRBWbfOYuR/Brsr76FWzcmqXU1OR2WG8HY2D2Ehb2FCxdv4on36+CkyUJgQzle3bUORDE7K43FJGPhLz3OR2bgaEk3jAYTlPSeUSpBe9Dl2mCiV4qZLpfBYkmyyWMrNQp6u9qh0bQiK6sZiI+G56WPYJ2akUj31YHagMFuTtXSwNXWvcaZzS2cxdL0EDpOq03gtp8u4sKMEzIsZjmLRfdQHXvnAtfUlMm5uGzjnHYHcQPL87V/AwAA//8RppgFAAAABklEQVQDAJel4SerKVo+AAAAAElFTkSuQmCC" alt="EN"></li>
+            <li data-lang="uk"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABQklEQVR4AbSUy0rDQBSGfw50oW/gGxTcu/EBKtW1C8G6c1W6qS76Am76ONKF4Nu4ldLQ1GSSuXj+xpFSWjEwCXw5M5OTbzK3SP/qdtC/eXjpgvPr+4GE3slwNHme3Y2nSRlNnmZWZCguBMlNjVVRbck0Rtq2xXzG3FjQLSEAeVVjU9ktucZI27aYz0gn3WK9x7q0yMs6KXTSLV47yAqDrKwazE6M5fjsUNzP+a0b0C3Oo5n7+DLXgGVGwvJf7Of81FdfFegWFzyWWsmKGimhk25dA+AzL7HcmKTQaXV2ZHzxho/pYyfQLUANcD8FpzEluv/VLZ7jACs6HqQkgG7xB+U6kn93djyXbj0HFs21+/VtRnQsF3oOLAS6TZsOOrirW9h/B+qtkm7+7EJRAkXZSwygmzPI4tXNT8/Wl12weHfzbwAAAP//zxDF7AAAAAZJREFUAwCmvCgv5Kq5MAAAAABJRU5ErkJggg==" alt="UA"></li>
+            <li data-lang="fr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAABw0lEQVR4AayUsW7bMBCGf7NJDOg5MngsEKCLp6AFWnTo0s1AsjdoO3Sq08GeXKB9hD5Nn6RDgQ6tY1sSJdkR765HRQGUhDKXSPp0PFC6n0ceaUajFy+Pj18t+pjP54t9fBw9XYT4cnLy9dPp6RtT1wevz8/fTyeTdy0XHXsxnc1me7mcnE0vA3x4e/YZf66eG0CMtVtsNlVL2bElYpdLM7hN2kBpCo/32RaoiYxxjmHtDkURJiYgGkiKEh62JTy+Ldo+EIFhFmRZhTzvcOurjQmwtRr0IZTnGLJmQMRI0+1dstZXGxOgNNdpCZGhYGHjBdbrop336oGNCTi/BiHWKaQmNGuwuio1gypITIA1gxCkAiAHzUDw91+G5TIPEhNwqxWCLJeAazJwvRXkKysm0FRMW0X328x8U0VaTSCSIFEBLRIJ4YP6NSDfqY5XCxETABOCtDFNkgyfSONoBronuItmFRMQnYY+WBxMabes8eEDSze4b/uOmIJ+hwAD/U+c7uSa9K3O4z8DsGanRwVj4OUeXwGstxnqeQoQjo4QpKoq7GN3eIgQWx2wjlvMjn9/u77+Me4jSZLxPp7lv8Z9/CT6/h8AAP//JmOfhAAAAAZJREFUAwDRdry3ZYNm6wAAAABJRU5ErkJggg==" alt="FR"></li>
+          </ul>
+        </div>
+        <!-- Тема -->
+        <div class="theme-toggle">
+          <button class="theme-btn" data-theme="system" aria-label="System theme">
+            <svg class="icon-system-desktop" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M12.1665 13.5811V14.7803H3.66651V13.5811H12.1665Z"/><path d="M13.4453 7.02379C13.4453 6.04702 13.4452 5.3616 13.3887 4.83434C13.3333 4.31828 13.2302 4.02378 13.0723 3.80309C12.9446 3.62475 12.7877 3.46883 12.6094 3.34117C12.3887 3.18328 12.0942 3.08007 11.5781 3.02477C11.0508 2.96829 10.3655 2.96715 9.38867 2.96715H6.61035C5.63359 2.96715 4.94816 2.96827 4.4209 3.02477C3.90486 3.0801 3.61034 3.18321 3.38965 3.34117C3.21143 3.46878 3.05534 3.62487 2.92774 3.80309C2.76977 4.02377 2.66667 4.3183 2.61133 4.83434C2.55483 5.3616 2.55371 6.04702 2.55371 7.02379C2.55371 8.0006 2.55485 8.68596 2.61133 9.21324C2.66663 9.72936 2.76983 10.0238 2.92774 10.2445C3.0554 10.4228 3.21131 10.5797 3.38965 10.7074C3.61034 10.8654 3.90484 10.9685 4.4209 11.0238C4.94816 11.0803 5.63359 11.0804 6.61035 11.0804H9.38867C10.3654 11.0804 11.0508 11.0803 11.5781 11.0238C12.0941 10.9685 12.3887 10.8652 12.6094 10.7074C12.7877 10.5797 12.9446 10.4229 13.0723 10.2445C13.2301 10.0238 13.3334 9.72927 13.3887 9.21324C13.4452 8.68596 13.4453 8.00058 13.4453 7.02379ZM14.6455 7.02379C14.6455 7.97428 14.646 8.73509 14.5811 9.34117C14.5149 9.95828 14.3756 10.4858 14.0479 10.9437C13.8436 11.229 13.5938 11.4788 13.3086 11.683C12.8507 12.0108 12.3232 12.15 11.7061 12.2162C11.1 12.2811 10.3391 12.2806 9.38867 12.2806H6.61035C5.66018 12.2806 4.89991 12.2811 4.29395 12.2162C3.67684 12.15 3.14935 12.0108 2.69141 11.683C2.40613 11.4788 2.15639 11.229 1.95215 10.9437C1.62436 10.4858 1.4841 9.95828 1.41797 9.34117C1.35305 8.73511 1.35449 7.97424 1.35449 7.02379C1.35449 6.07366 1.35308 5.31333 1.41797 4.70738C1.4841 4.09028 1.62436 3.56279 1.95215 3.10485C2.15638 2.81956 2.40613 2.56982 2.69141 2.36559C3.14935 2.03779 3.67684 1.89753 4.29395 1.83141C4.8999 1.76652 5.66022 1.76793 6.61035 1.76793H9.38867C10.3391 1.76793 11.1 1.76649 11.7061 1.83141C12.3232 1.89753 12.8507 2.03779 13.3086 2.36559C13.5939 2.56982 13.8436 2.81957 14.0479 3.10485C14.3756 3.56279 14.5149 4.09028 14.5811 4.70738C14.646 5.31335 14.6455 6.07362 14.6455 7.02379Z"/></svg>
+            <svg class="icon-system-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M12.5 1A3.5 3.5 0 0 1 16 4.5v11a3.5 3.5 0 0 1-3.5 3.5h-5A3.5 3.5 0 0 1 4 15.5v-11A3.5 3.5 0 0 1 7.5 1h5Zm-5 1.3a2.2 2.2 0 0 0-2.2 2.2v11a2.2 2.2 0 0 0 2.2 2.2h5a2.2 2.2 0 0 0 2.2-2.2v-11a2.2 2.2 0 0 0-2.2-2.2h-5Zm4.65 2.35h-4.3v-1.3h4.3v1.3Z"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="light" aria-label="Light theme">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.3496 8C11.3496 6.14985 9.85015 4.65039 8 4.65039C6.14985 4.65039 4.65039 6.14985 4.65039 8C4.65039 9.85015 6.14985 11.3496 8 11.3496C9.85015 11.3496 11.3496 9.85015 11.3496 8ZM12.6504 8C12.6504 10.5681 10.5681 12.6504 8 12.6504C5.43188 12.6504 3.34961 10.5681 3.34961 8C3.34961 5.43188 5.43188 3.34961 8 3.34961C10.5681 3.34961 12.6504 5.43188 12.6504 8Z"/><path d="M8.65039 0.5V2.5H7.34961V0.5H8.65039Z"/><path d="M8.65039 13.5V15.5H7.34961V13.5H8.65039Z"/><path d="M3.15808 2.24035L4.57229 3.65456L3.6525 4.57435L2.23829 3.16014L3.15808 2.24035Z"/><path d="M12.3505 11.4327L13.7647 12.8469L12.8449 13.7667L11.4307 12.3525L12.3505 11.4327Z"/><path d="M2.24537 12.8469L3.65958 11.4327L4.57937 12.3525L3.16516 13.7667L2.24537 12.8469Z"/><path d="M11.4377 3.65455L12.852 2.24033L13.7718 3.16012L12.3575 4.57434L11.4377 3.65455Z"/><path d="M0.5 7.35461H2.5V8.6554H0.5L0.5 7.35461Z"/><path d="M13.5 7.35461H15.5V8.6554H13.5V7.35461Z"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="dark" aria-label="Dark theme">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M13.2764 9.52324C12.5607 9.97754 11.7177 10.242 10.7812 10.242C8.11386 10.2419 5.95042 8.07997 5.9502 5.41289C5.9502 4.48128 6.21453 3.61071 6.67188 2.87285C4.30332 3.4658 2.54992 5.60845 2.5498 8.16093C2.5498 11.1712 4.99103 13.6102 8 13.6102C10.5383 13.6102 12.6709 11.8724 13.2764 9.52324ZM7.05078 5.41289C7.051 7.47224 8.72116 9.1423 10.7812 9.14238C11.9248 9.14238 12.887 8.63397 13.5781 7.8084C13.7266 7.63106 13.9701 7.56547 14.1875 7.64433C14.4049 7.72329 14.5497 7.9297 14.5498 8.16093C14.5498 11.7766 11.6161 14.7098 8 14.7098C4.38402 14.7098 1.4502 11.7792 1.4502 8.16093C1.45033 4.54322 4.3812 1.61015 8 1.61015C8.23027 1.61015 8.43585 1.75352 8.51562 1.96953C8.59536 2.18554 8.53241 2.42829 8.35742 2.57793C7.55573 3.26311 7.05078 4.27876 7.05078 5.41289Z"/></svg>
+          </button>
+        </div>
+        <!-- Шестерёнка настроек -->
+        <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+          <svg data-component="Octicon" aria-hidden="true" focusable="false" class="octicon octicon-gear" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align: text-bottom;"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero glass">
+        <div class="hero-content">
+          <h1 data-i18n="hero_title">Никотин убивает мечту</h1>
+          <p data-i18n="hero_subtitle">Каждая сигарета — шаг к могиле. Остановись!</p>
+          <a href="#stats" class="cta-button glass" data-i18n="hero_cta">Узнать правду</a>
+        </div>
+      </section>
+
+      <section id="stats" class="stats">
+        <h2 data-i18n="stats_title">Шокирующая статистика</h2>
+        <div class="stats-grid">
+          <div class="stat-card glass">
+            <div class="stat-number" data-count="6">0</div>
+            <p data-i18n="stats_item1">Каждые 6 секунд человек умирает от курения</p>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-number" data-count="10">0</div>
+            <p data-i18n="stats_item2">Курильщики живут на 10 лет меньше</p>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-number" data-count="7000">0</div>
+            <p data-i18n="stats_item3">В дыме более 7000 химикатов</p>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-number" data-count="90">0</div>
+            <p data-i18n="stats_item4">90% случаев рака лёгких — из-за курения</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="myths" class="myths">
+        <h2 data-i18n="nav_myths">Мифы</h2>
+        <div class="myths-list">
+          <article class="myth glass">
+            <h3 data-i18n="myth1_title">Миф: Лёгкие сигареты безопаснее</h3>
+            <p data-i18n="myth1_text">Нет безопасной дозы никотина. Лёгкие сигареты содержат те же яды.</p>
+          </article>
+          <article class="myth glass">
+            <h3 data-i18n="myth2_title">Миф: Курение успокаивает</h3>
+            <p data-i18n="myth2_text">Это иллюзия: никотиновая ломка создаёт стресс, а сигарета лишь временно снимает его.</p>
+          </article>
+          <article class="myth glass">
+            <h3 data-i18n="myth3_title">Миф: Бросить трудно</h3>
+            <p data-i18n="myth3_text">Трудно только первые 3 дня. Миллионы людей уже бросили — ты сможешь!</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tips" class="tips">
+        <h2 data-i18n="tips_title">Как бросить курить</h2>
+        <ol class="tips-list">
+          <li data-i18n="tip1" class="glass">Назначь дату отказа и скажи друзьям</li>
+          <li data-i18n="tip2" class="glass">Убери все сигареты и пепельницы</li>
+          <li data-i18n="tip3" class="glass">Пей больше воды, жуй жвачку без сахара</li>
+          <li data-i18n="tip4" class="glass">Замени привычку спортом или хобби</li>
+          <li data-i18n="tip5" class="glass">Обратись к врачу или используй никотинзаместительную терапию</li>
+        </ol>
+      </section>
+
+      <section id="harm" class="harm">
+        <h2 data-i18n="harm_title">Что курение делает с организмом</h2>
+        <p data-i18n="harm_intro">Курение разрушает тебя изнутри:</p>
+        <div class="harm-grid">
+          <div class="harm-item glass"><span data-i18n="harm_respiratory">Дыхательная система: хронический бронхит, эмфизема, рак лёгких</span></div>
+          <div class="harm-item glass"><span data-i18n="harm_heart">Сердечно-сосудистая: инфаркты, инсульты, гипертония</span></div>
+          <div class="harm-item glass"><span data-i18n="harm_reproductive">Репродуктивная система: бесплодие, импотенция, риск выкидыша</span></div>
+          <div class="harm-item glass"><span data-i18n="harm_skin">Кожа: преждевременное старение, морщины</span></div>
+        </div>
+      </section>
+
+      <section id="stories" class="stories">
+        <h2 data-i18n="stories_title">Реальные истории победителей</h2>
+        <div class="story-card glass">
+          <p data-i18n="story1">Анна, 34 года: «Курила 15 лет, бросила за месяц. Вернулось обоняние, начала бегать.»</p>
+        </div>
+        <div class="story-card glass">
+          <p data-i18n="story2">Максим, 28 лет: «Думал, что никогда не брошу. Помогли леденцы и спорт. Год без сигарет.»</p>
+        </div>
+        <div class="story-card glass">
+          <p data-i18n="story3">Елена, 52 года: «Стаж 30 лет. Бросила после инфаркта. Жизнь стала ярче.»</p>
+        </div>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2 data-i18n="faq_title">Часто задаваемые вопросы</h2>
+        <details class="faq-item glass">
+          <summary data-i18n="faq_q1">Сколько длится никотиновая ломка?</summary>
+          <p data-i18n="faq_a1">Острые симптомы проходят за 3-7 дней. Психологическая тяга может сохраняться месяцы, но слабеет.</p>
+        </details>
+        <details class="faq-item glass">
+          <summary data-i18n="faq_q2">Помогает ли вейпинг?</summary>
+          <p data-i18n="faq_a2">Нет. Вейпы содержат никотин и вредные химикаты, они просто другая форма зависимости.</p>
+        </details>
+        <details class="faq-item glass">
+          <summary data-i18n="faq_q3">Что делать, если срываюсь?</summary>
+          <p data-i18n="faq_a3">Не корите себя. Проанализируйте причину и продолжайте попытки. Каждый срыв — опыт.</p>
+        </details>
+      </section>
+
+      <section id="contacts" class="contacts glass">
+        <h2 data-i18n="nav_contacts">Контакты</h2>
+        <p>Email: <a href="mailto:nenormikchel@gmail.com">nenormikchel@gmail.com</a></p>
+      </section>
+    </main>
+
+    <footer class="glass">
+      <p data-i18n="footer_quote">Сделай первый вдох свободным!</p>
+      <p data-i18n="footer_copyright">© 2026 NoNicotina. Все права защищены.</p>
+    </footer>
+
+  </div> <!-- /wrapper -->
+
+  <!-- ================= МОДАЛЬНОЕ ОКНО (вне wrapper) ================= -->
   <div class="settings-modal" id="settingsModal">
     <div class="modal-content glass">
       <h2 data-i18n="settings">Настройки</h2>
@@ -302,117 +418,6 @@
       <button class="close-modal" id="closeSettingsModal">×</button>
     </div>
   </div>
-
-  <main id="home">
-    <section class="hero glass">
-      <div class="hero-content">
-        <h1 data-i18n="hero_title">Никотин убивает мечту</h1>
-        <p data-i18n="hero_subtitle">Каждая сигарета — шаг к могиле. Остановись!</p>
-        <a href="#stats" class="cta-button glass" data-i18n="hero_cta">Узнать правду</a>
-      </div>
-    </section>
-
-    <section id="stats" class="stats">
-      <h2 data-i18n="stats_title">Шокирующая статистика</h2>
-      <div class="stats-grid">
-        <div class="stat-card glass">
-          <div class="stat-number" data-count="6">0</div>
-          <p data-i18n="stats_item1">Каждые 6 секунд человек умирает от курения</p>
-        </div>
-        <div class="stat-card glass">
-          <div class="stat-number" data-count="10">0</div>
-          <p data-i18n="stats_item2">Курильщики живут на 10 лет меньше</p>
-        </div>
-        <div class="stat-card glass">
-          <div class="stat-number" data-count="7000">0</div>
-          <p data-i18n="stats_item3">В дыме более 7000 химикатов</p>
-        </div>
-        <div class="stat-card glass">
-          <div class="stat-number" data-count="90">0</div>
-          <p data-i18n="stats_item4">90% случаев рака лёгких — из-за курения</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="myths" class="myths">
-      <h2 data-i18n="nav_myths">Мифы</h2>
-      <div class="myths-list">
-        <article class="myth glass">
-          <h3 data-i18n="myth1_title">Миф: Лёгкие сигареты безопаснее</h3>
-          <p data-i18n="myth1_text">Нет безопасной дозы никотина. Лёгкие сигареты содержат те же яды.</p>
-        </article>
-        <article class="myth glass">
-          <h3 data-i18n="myth2_title">Миф: Курение успокаивает</h3>
-          <p data-i18n="myth2_text">Это иллюзия: никотиновая ломка создаёт стресс, а сигарета лишь временно снимает его.</p>
-        </article>
-        <article class="myth glass">
-          <h3 data-i18n="myth3_title">Миф: Бросить трудно</h3>
-          <p data-i18n="myth3_text">Трудно только первые 3 дня. Миллионы людей уже бросили — ты сможешь!</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="tips" class="tips">
-      <h2 data-i18n="tips_title">Как бросить курить</h2>
-      <ol class="tips-list">
-        <li data-i18n="tip1" class="glass">Назначь дату отказа и скажи друзьям</li>
-        <li data-i18n="tip2" class="glass">Убери все сигареты и пепельницы</li>
-        <li data-i18n="tip3" class="glass">Пей больше воды, жуй жвачку без сахара</li>
-        <li data-i18n="tip4" class="glass">Замени привычку спортом или хобби</li>
-        <li data-i18n="tip5" class="glass">Обратись к врачу или используй никотинзаместительную терапию</li>
-      </ol>
-    </section>
-
-    <section id="harm" class="harm">
-      <h2 data-i18n="harm_title">Что курение делает с организмом</h2>
-      <p data-i18n="harm_intro">Курение разрушает тебя изнутри:</p>
-      <div class="harm-grid">
-        <div class="harm-item glass"><span data-i18n="harm_respiratory">Дыхательная система: хронический бронхит, эмфизема, рак лёгких</span></div>
-        <div class="harm-item glass"><span data-i18n="harm_heart">Сердечно-сосудистая: инфаркты, инсульты, гипертония</span></div>
-        <div class="harm-item glass"><span data-i18n="harm_reproductive">Репродуктивная система: бесплодие, импотенция, риск выкидыша</span></div>
-        <div class="harm-item glass"><span data-i18n="harm_skin">Кожа: преждевременное старение, морщины</span></div>
-      </div>
-    </section>
-
-    <section id="stories" class="stories">
-      <h2 data-i18n="stories_title">Реальные истории победителей</h2>
-      <div class="story-card glass">
-        <p data-i18n="story1">Анна, 34 года: «Курила 15 лет, бросила за месяц. Вернулось обоняние, начала бегать.»</p>
-      </div>
-      <div class="story-card glass">
-        <p data-i18n="story2">Максим, 28 лет: «Думал, что никогда не брошу. Помогли леденцы и спорт. Год без сигарет.»</p>
-      </div>
-      <div class="story-card glass">
-        <p data-i18n="story3">Елена, 52 года: «Стаж 30 лет. Бросила после инфаркта. Жизнь стала ярче.»</p>
-      </div>
-    </section>
-
-    <section id="faq" class="faq">
-      <h2 data-i18n="faq_title">Часто задаваемые вопросы</h2>
-      <details class="faq-item glass">
-        <summary data-i18n="faq_q1">Сколько длится никотиновая ломка?</summary>
-        <p data-i18n="faq_a1">Острые симптомы проходят за 3-7 дней. Психологическая тяга может сохраняться месяцы, но слабеет.</p>
-      </details>
-      <details class="faq-item glass">
-        <summary data-i18n="faq_q2">Помогает ли вейпинг?</summary>
-        <p data-i18n="faq_a2">Нет. Вейпы содержат никотин и вредные химикаты, они просто другая форма зависимости.</p>
-      </details>
-      <details class="faq-item glass">
-        <summary data-i18n="faq_q3">Что делать, если срываюсь?</summary>
-        <p data-i18n="faq_a3">Не корите себя. Проанализируйте причину и продолжайте попытки. Каждый срыв — опыт.</p>
-      </details>
-    </section>
-
-    <section id="contacts" class="contacts glass">
-      <h2 data-i18n="nav_contacts">Контакты</h2>
-      <p>Email: <a href="mailto:nenormikchel@gmail.com">nenormikchel@gmail.com</a></p>
-    </section>
-  </main>
-
-  <footer class="glass">
-    <p data-i18n="footer_quote">Сделай первый вдох свободным!</p>
-    <p data-i18n="footer_copyright">© 2026 NoNicotina. Все права защищены.</p>
-  </footer>
 
   <script src="static/scripts/i18n.js"></script>
   <script src="static/scripts/script.js"></script>
