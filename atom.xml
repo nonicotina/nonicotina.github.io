@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xml:lang="en">
+  <title>Nonicotina</title>
+  <subtitle>Personal website and digital garden</subtitle>
+  <link href="https://nonicotina.github.io/atom.xml"
+        rel="self"
+        type="application/atom+xml"/>
+  <link href="https://nonicotina.github.io/"
+        rel="alternate"
+        type="text/html"/>
+  <id>tag:nonicotina.github.io,2026:/</id>
+  <updated>2026-06-24T10:00:00Z</updated>
+
+  <author>
+    <name>Nonicotina</name>
+    <uri>https://nonicotina.github.io/</uri>
+    <email>nonicotina@users.noreply.github.com</email>
+  </author>
+
+  <generator uri="https://github.com/nonicotina/nonicotina.github.io">
+    Static site generator (manual)
+  </generator>
+
+  <icon>https://nonicotina.github.io/static/favicon/favicon-32x32.png</icon>
+  <logo>https://nonicotina.github.io/static/favicon/android-chrome-512x512.png</logo>
+
+  <!-- Основная запись – главная страница -->
+  <entry>
+    <title>Home – Nonicotina</title>
+    <link href="https://nonicotina.github.io/"
+          rel="alternate"
+          type="text/html"/>
+    <id>tag:nonicotina.github.io,2026:/index.html</id>
+    <updated>2026-06-24T10:00:00Z</updated>
+    <published>2024-01-01T00:00:00Z</published>
+
+    <summary type="text">
+      Personal homepage of Nonicotina – a simple, multilingual static site.
+    </summary>
+
+    <content type="html" xml:lang="en">
+      <![CDATA[
+        <p>
+          Welcome to the personal website of <strong>Nonicotina</strong>.
+          This site is built as a lightweight, accessible static page
+          with support for multiple languages and styles.
+        </p>
+        <p>
+          Explore the source code on
+          <a href="https://github.com/nonicotina/nonicotina.github.io">GitHub</a>.
+        </p>
+        <ul>
+          <li><a href="https://nonicotina.github.io/sitemap.xml">Sitemap</a></li>
+          <li><a href="https://nonicotina.github.io/rss.xml">RSS feed</a></li>
+          <li><a href="https://nonicotina.github.io/humans.txt">humans.txt</a></li>
+        </ul>
+      ]]>
+    </content>
+
+    <author>
+      <name>Nonicotina</name>
+      <uri>https://nonicotina.github.io/</uri>
+    </author>
+  </entry>
+
+  <!-- Можно добавить дополнительные записи, если в будущем появятся статьи -->
+  <!-- Например, для каждого JSON-файла локали или обновлений из папки notifications -->
+
+</feed>
